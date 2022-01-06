@@ -21,8 +21,9 @@
         "prettier"
     ],
     "rules": {
+        
         "prettier/prettier": "error",
-        "endOfLine":"auto",
+        "endOfLine":"off",
         "camelcase": "off",
         "import/no-unresolved": "error",
         "@typescript-eslint/naming-convention": [
