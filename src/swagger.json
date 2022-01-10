@@ -3,6 +3,89 @@
     "info": {
         "title": "api documentation",
         "description": "This is an API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "contact": {
+            "email": "jameson_andrade@hotmail.com.br"
+        }
+    },
+    "paths": {
+        "/categories": { 
+                "post": {
+                "tags": ["category"],
+                "summary": "Create a category",
+                "description": "Create a new category",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Category test",
+                                    "description": "Category Description test"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Category Already Exists!"
+                    }
+                }
+            },
+            "get": {
+                "tags": ["category"],
+                "summary": "List All Categories",
+                "description": "List All Categories",
+             
+                "example": {
+                    "name": "Category test",
+                    "description": "Category Description test",
+                    "responses": {
+                        "200": {
+                            "description": "Sucess",
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        } 
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Category Already Exists!"
+                    }
+                }
+            }
+        }
     }
 }
