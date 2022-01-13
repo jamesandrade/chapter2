@@ -13,7 +13,10 @@ class CategoriesRepository implements ICategoriesRepository {
         this.repository = getRepository(Category);
     }
 
-    async create({ description, name }: ICreateCategoryDTO): Promise<void> {
+    public async create({
+        description,
+        name,
+    }: ICreateCategoryDTO): Promise<void> {
         const category = this.repository.create({
             description,
             name,
@@ -22,16 +25,16 @@ class CategoriesRepository implements ICategoriesRepository {
         await this.repository.save(category);
     }
 
-    async list(): Promise<Category[]> {
+    public async list(): Promise<Category[]> {
         const categories = await this.repository.find();
         return categories;
     }
 
-    async findByName(name: string): Promise<Category> {
+    public async findByName(name: string): Promise<Category> {
         const category = await this.repository.findOne({ name });
 
         return category;
     }
 }
 
-export { CategoriesRepository };
+export default CategoriesRepository;
