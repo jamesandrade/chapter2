@@ -33,6 +33,16 @@ class UsersRepository implements IUsersRepository {
         const user = await this.repository.findOne({ id });
         return user;
     }
+    async updateUserAvatar(avatar: string, id: string): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .update(User)
+            .set({
+                avatar,
+            })
+            .where({ id })
+            .execute();
+    }
 }
 
 export { UsersRepository };
