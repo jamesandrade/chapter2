@@ -4,4 +4,6 @@ export interface ICreateUserDTO {
     email: string;
     driver_license: string;
     password: string;
+    avatar?: string;
+    id?: string;
 }
