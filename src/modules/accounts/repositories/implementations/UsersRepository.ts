@@ -34,6 +34,7 @@ class UsersRepository implements IUsersRepository {
         return user;
     }
     async updateUserAvatar(avatar: string, id: string): Promise<void> {
+        console.log(`${avatar} / ${id}`);
         await this.repository
             .createQueryBuilder()
             .update(User)
